@@ -47,8 +47,6 @@ public class ApiController {
                 "csrf"));
 
         String authorizeUrl = webAuth.start();
-        log.info("session is new? {}", session.isNew());
-        log.info("csrf: {}", session.getAttribute("csrf"));
 
         return "redirect:" + authorizeUrl;
     }
@@ -56,8 +54,6 @@ public class ApiController {
     @RequestMapping(value = "/http/authorization", method = RequestMethod.GET, params = { "state", "code" })
     public String nonauthorization(@RequestParam(value = "state") String state,
             @RequestParam(value = "code") String code, HttpSession session, Model model) {
-        log.info("session is new? {}", session.isNew());
-        log.info("csrf: {}", session.getAttribute("csrf"));
 
         DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
         DbxRequestConfig config = new DbxRequestConfig("JavaTutorial/1.0", Locale.getDefault().toString());
@@ -96,10 +92,6 @@ public class ApiController {
 
         String authorizeUrl = webAuth.start();
 
-        log.info("session is new? {}", session.isNew());
-        log.info("csrf: {}", session.getAttribute("csrf"));
-
-
         return "redirect:" + authorizeUrl;
     }
 
@@ -113,9 +105,6 @@ public class ApiController {
 
         String authorizeUrl = webAuth.start();
 
-        log.info("session is new? {}", session.isNew());
-        log.info("csrf: {}", session.getAttribute("csrf"));
-
         return "redirect:" + authorizeUrl + "&force_reapprove=" + value;
     }
 
@@ -128,9 +117,6 @@ public class ApiController {
         DbxWebAuth webAuth = new DbxWebAuth(config, appInfo, AUTH_URI_WITH_HTTPS, new DbxStandardSessionStore(session,
                 "csrf"));
         
-        log.info("session is new? {}", session.isNew());
-        log.info("csrf: {}", session.getAttribute("csrf"));
-
         Map<String, String[]> queryParams = new HashMap<String, String[]>();
         queryParams.put("state", new String[] { state });
         queryParams.put("code", new String[] { code });
