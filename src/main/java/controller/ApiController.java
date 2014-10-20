@@ -73,8 +73,17 @@ public class ApiController {
 
             model.addAttribute("client", client);
             model.addAttribute("token", accessToken);
-        } catch (DbxException | BadRequestException | BadStateException | CsrfException | NotApprovedException
-                | ProviderException e) {
+        } catch (DbxException e) {
+            e.printStackTrace();
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        } catch (BadStateException e) {
+            e.printStackTrace();
+        } catch (CsrfException e) {
+            e.printStackTrace();
+        } catch (NotApprovedException e) {
+            e.printStackTrace();
+        } catch (ProviderException e) {
             e.printStackTrace();
         }
 
@@ -130,11 +139,20 @@ public class ApiController {
 
             model.addAttribute("client", client);
             model.addAttribute("token", accessToken);
-        } catch (DbxException | BadRequestException | BadStateException | CsrfException | NotApprovedException
-                | ProviderException e) {
+        } catch (DbxException e) {
+            e.printStackTrace();
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        } catch (BadStateException e) {
+            e.printStackTrace();
+        } catch (CsrfException e) {
+            e.printStackTrace();
+        } catch (NotApprovedException e) {
+            e.printStackTrace();
+        } catch (ProviderException e) {
             e.printStackTrace();
         }
-        
+
         return "userInfo";
     }
 
